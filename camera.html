@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <link rel="preload" href="./Script/videoCapture.js" as="script">
+
+    <title>Camera Capture</title>
+</head>
+<body>
+    <video id ="video"
+    width="720"
+    height="480"
+    autoplay
+    playsinline
+    ></video>
+    <div id="error"></div>
+    <div id="btnCont">
+        <button onclick="openCamera()">Open Camera</button>
+        <button onclick="closeCamera()">Close Camera</button>
+    </div>
+    <script src="./Script/videoCapture.js" defer></script>
+</body>
+</html>
