@@ -169,3 +169,9 @@ video {
     margin-bottom: 0.6rem; 
     display: none; 
 }
+
+#photo {
+    border: 1px solid black;
+    width: 720px;
+    height: 480px;
+}

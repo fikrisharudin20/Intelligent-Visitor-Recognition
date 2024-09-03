@@ -47,3 +47,4 @@ stop all the mediaTracks by calling its stop() method*/
         errorElem.style.display = "block"; 
     } 
 } 
+
