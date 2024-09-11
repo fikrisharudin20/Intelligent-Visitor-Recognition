@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/main.css">
+    <link rel="preload" href="/src/script/videoCapture.js" as="script">
+    <script src="/src/script/photoCaptureAndSender.js"></script>
+
+    <title>Camera Capture</title>
+</head>
+<body>
+    <video id ="video"
+    width="720"
+    height="480"
+    autoplay
+    playsinline
+    ></video>
+    <div id="error"></div>
+    <div id="btnCont">
+        <button onclick="openCamera()">Open Camera</button>
+        <button onclick="closeCamera()">Close Camera</button>
+       <button id="startbutton">Take photo</button>
+    </div>
+    <canvas id="canvas" ></canvas>
+    <div class="output">
+        <img id="photo" alt="The screen capture will appear in this box."> 
+    </div>
+    <button id="capture">Capture</button>
+    <a id="downloadLink" download="photo.png">Download Image</a>
+    <script src="/src/script/videoCapture.js" defer></script>
+
+    <script>
+        const video = document.getElementById('video');
+const canvas = document.getElementById('canvas');
+const captureButton = document.getElementById('capture');
+const downloadLink = document.getElementById('downloadLink');
+
+// Access the webcam
+navigator.mediaDevices.getUserMedia({ video: true })
+    .then(stream => {
+        video.srcObject = stream;
+    })
+    .catch(err => {
+        console.error('Error accessing webcam:', err);
+    });
+
+// Capture the image and upload it to the server
+captureButton.addEventListener('click', () => {
+    const context = canvas.getContext('2d');
+    canvas.style.display = 'block';
+    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+    // Convert canvas to Blob
+    canvas.toBlob((blob) => {
+        const formData = new FormData();
+        formData.append('photo', blob, 'photo.png');
+
+        // Send the image to the server via POST
+        fetch('/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data); // Server response
+            alert('Image uploaded successfully');
+        })
+        .catch(err => {
+            console.error('Error uploading image:', err);
+        });
+    }, 'image/png');
+});
+    </script>
+</body>
+</html>
