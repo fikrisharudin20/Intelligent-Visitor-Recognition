@@ -1,0 +1,177 @@
+:root
+{
+    --bgColor: 	#234769;
+    --fgColor: #ffffff;
+    --lineColor: #000000;
+    --dateBgColor: #b08096;
+    --fontSize: 14pt;
+    --titleSize: 72pt;
+    --scale: 0.95;
+    --catCafe: 'catcafe-medium';
+}
+
+*, *::before, *::after
+{
+    box-sizing: border-box;
+
+}
+
+.subheader
+{
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+.body
+{
+    margin: auto;
+    align-content: center;
+    width: auto;
+    height: auto;
+    
+}
+
+.canvas
+{
+    position: relative;
+    width:1080px;
+    height: 1350px;
+}
+.resumeImage
+{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    transform: scale(1);
+    border-radius: 100%;
+    border-style: solid;
+    border-color: #ffffff 10px;
+    border-width: 5px;
+    left: 5.5em;
+}
+
+.metaDetails
+{
+    position: absolute;
+    top:16em;
+    left:4em;
+}
+
+.informationDetails
+{
+    padding: 2em 4em;
+    width: 400px;
+    height: 1350px;
+    background-color: var(--bgColor);
+    color:var(--fgColor);
+    float:left;
+}
+
+.nameHolder
+{
+    text-align: center;
+    font-weight: bold;
+    font-size: 18pt;
+}
+
+.titles
+{
+    text-align: center;
+}
+
+.lineDetails
+{
+    position: absolute;
+    top:20em;
+    left:3.5em;
+    width: 10%;
+}
+.infoDetails
+{
+    position: absolute;
+    top:21em;
+}
+.email
+{
+    color:var(--fgColor);
+    text-decoration: none;
+}
+
+.langDetails
+{
+    position: absolute;
+    top:29em;
+}
+
+.hobbiesDetails
+{
+    position: absolute;
+    top:46em;
+
+}
+
+.paragraph
+{
+    word-wrap: break-word;
+    width: 300px;
+}
+
+.mainContent
+{
+    padding: 2em 4em;
+    width: 680px;
+    height: 1350px;
+    float: right;
+  
+}
+
+.headerText
+{
+    font-size:18pt;
+    font-weight: bold;
+    color:var(--lineColor);
+    text-transform: uppercase;
+}
+
+.paragraphLong
+{
+    width: 500px;
+    word-wrap: break-word;
+    text-align: justify;
+    font-size: 14pt;
+}
+
+.logoPanel
+{
+    padding: 3.5em;
+}
+
+.WelcomeMsg
+{
+    text-align: center;
+    font-size: var(--titleSize);
+    position: absolute; /* <<< reason for relative positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px; /* <<< adjust to your needs */
+}
+
+video { 
+    background-color: black; 
+    margin-bottom: 1rem; 
+} 
+  
+#error { 
+    color: red; 
+    padding: 0.6rem; 
+    background-color: rgb(236 157 157); 
+    margin-bottom: 0.6rem; 
+    display: none; 
+}
+
+#photo {
+    border: 1px solid black;
+    width: 720px;
+    height: 480px;
+}
