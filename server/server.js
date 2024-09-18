@@ -2,6 +2,9 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const app = express();
+const open = require('open');
+
+const defaultDomain = "camera.html"
 
 const hostname = "localhost";
 const port = 3000;
@@ -29,5 +32,6 @@ app.post("/upload", upload.single("photo"), (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+  console.log(`Server running at http://${hostname}:${port}/${defaultDomain}`);
+  open(`http://${hostname}:${port}/${defaultDomain}`);
 });
