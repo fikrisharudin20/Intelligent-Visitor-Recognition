@@ -53,7 +53,7 @@ while True:
         
     cv2.rectangle(frame,(left,top),(right,bottom),(0,0,255),2)
     cv2.putText(frame,name,(left,top-10),cv2.FONT_HERSHEY_SIMPLEX,0.9,(0,0,255),2)
-
+    cv2.resize(frame,(720,480))
     cv2.imshow("Video",frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
