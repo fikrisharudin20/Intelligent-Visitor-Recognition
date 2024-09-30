@@ -16,20 +16,20 @@ def split_camel_case(s):
     return re.sub('([a-z])([A-Z])', r'\1 \2', s)
 
 def preloadDataset():
+    #honestly this print function is to check where the hell is the folder path
     print(folder)
     for file in os.listdir(folder):
         filename = os.fsdecode(file)
         if filename.endswith( ('.jpg', '.png', '.gif','jpeg') ): 
            
-            #filenames.append(filename)
-            #print(os.path.join(folder,filename))
+     
             img = face_recognition.load_image_file("face_reg\\dataset\\"+filename)
             imgEncoding = face_recognition.face_encodings(img)[0]
             knownFaceEncodings.append(imgEncoding)
 
             name = os.path.splitext(os.path.basename(filename))[0]
             seperatedString = split_camel_case(name)
-            #print(seperatedString.upper())
+   
 
             knownFaceNames.append(seperatedString)
 
@@ -55,6 +55,8 @@ while True:
     cv2.putText(frame,name,(left,top-10),cv2.FONT_HERSHEY_SIMPLEX,0.9,(0,0,255),2)
     cv2.resize(frame,(720,480))
     cv2.imshow("Video",frame)
+
+    #Honestly, the app will not close on x button until you press q, i guess q for quit???
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
