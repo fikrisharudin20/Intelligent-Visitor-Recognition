@@ -1,0 +1,127 @@
+body {
+    /* margin: 0px;
+    max-height: 100vh;
+    overflow: hidden; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+
+canvas {
+    display: none;
+
+    position: absolute; /* Position it absolutely to overlay the video */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Make it full width */
+    height: 100vh; /* Make it full height */
+}
+
+button {
+    border: 0;
+    outline: none;
+    background: #00000070;
+    color: #FFFFFF;
+    padding: 4px 8px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 24px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.camera-ctn {
+    position: relative;
+    background: #000000;
+}
+
+.camera-view video {
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    transform: scaleX(-1);
+
+}
+
+/* CAMERA BOTTOM */
+.camera-bottom {
+    height: 250px;
+    background: #00000050;
+    position: absolute;
+    inset: 0;
+    top: auto;
+    padding: 0 5%;
+    display: grid;
+    place-items: center;
+
+    /* z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+
+}
+
+.camera-bottom>.inner {
+    display: grid;
+    place-items: center;
+    max-width: 500px;
+}
+
+/* SHUTTER CONTAINER */
+.shutter-ctn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.shutter {
+    height: 70px;
+    width: 70px;
+    background: #FFFFFF;
+    border-radius: 50%;
+
+    /* ! test */
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+
+    margin-top: auto;
+
+}
+
+.shutter:active {
+    transform: scale(0.8);
+}
+
+.switch-device {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+
+    /* test */
+    /* display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: transform 0.2s; */
+
+}
+
+#camera-stream {
+    width: 640px; /* Set the desired width */
+    height: 480px; /* Set the desired height */
+    max-width: 100%; /* Ensure it doesn't overflow the container */
+    max-height: 100%; /* Ensure it doesn't overflow the container */
+    
+    margin-top: -180px;
+
+    /* invert y axis */
+    transform: scaleX(-1);
+    
+}
